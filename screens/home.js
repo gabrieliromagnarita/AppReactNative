@@ -66,7 +66,7 @@ export const styles = StyleSheet.create({
         height: 130,
         width: 130,
         borderWidth: 5,
-        borderColor: 'pink',
+        borderColor: '#fff',
     },
     textSlogan:{
         fontSize: 35,
