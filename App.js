@@ -3,8 +3,6 @@ import Home from "./screens/home";
 import {View, StyleSheet} from 'react-native';
 // Only import react-native-gesture-handler on native platforms
 import 'react-native-gesture-handler';
-// Only import react-native-gesture-handler on native platforms
-import 'react-native-gesture-handler';
 
 export default function App() {
   return (
