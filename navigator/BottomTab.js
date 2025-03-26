@@ -6,25 +6,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Login from './screens/login';
 import Home from './screens/home';
 
-export default function App() {
+export default function Tab() {
   
   const Tab = createBottomTabNavigator();
 
   return (
     <NavigationContainer>
-      <Tab.Navigator
-      initialRouteName='Login'
-      screenOptions={{
-        tabBarActiveTintColor: '#fff',
-        tabBarActiveBackgroundColor: '#000',
-        tabBarInactiveBackgroundColor: '#222',
-        tabBarInactiveTintColor: '#dca',
-        headerStyle:{
-          backgroundColor: '#000',
-        },
-        headerTintColor: '#fff',
-        headerTitleAlign: 'left',
-      }}>
+      <Tab.Navigator>
         <Tab.Screen name='Login' component={Login}/>
         <Tab.Screen name='Home' component={Home}/>
       </Tab.Navigator>
