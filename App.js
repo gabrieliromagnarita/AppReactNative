@@ -1,20 +1,21 @@
-//import Login from "./screens/login";
-import Home from "./screens/home";
-import {View, StyleSheet} from 'react-native';
 // Only import react-native-gesture-handler on native platforms
 import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import Login from './screens/login';
+import Home from './screens/home';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Home/>
-      {/* <Login/> */}
-    </View>
-  )
-}
+  
+  const Stack = createStackNavigator();
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-})
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='Login' component={Login}/>
+        <Stack.Screen name='Home' component={Home}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
