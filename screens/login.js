@@ -2,7 +2,7 @@ import {Text, View, StyleSheet, TextInput, Button, ImageBackground, Alert} from 
 
 import image from '../assets/background.jpg';
 
-export default function Login(){
+export default function Login({navigation}){
     return(
         <View style={styles.all}>
             <ImageBackground style={{flex:1}} source={image}>
@@ -14,7 +14,7 @@ export default function Login(){
                     <TextInput style={styles.input} placeholder="Senha:"/>
                 </View>
                 <View style={styles.bottom}>
-                    <Button title="Confirmar" color='black' onPress={() => Alert.alert('Simple Button pressed')} />
+                    <Button title="Confirmar" color='black' onPress={() => navigation.navigate('Home')} />
                 </View>
             </ImageBackground>
         </View>
