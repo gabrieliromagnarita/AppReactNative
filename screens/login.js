@@ -7,7 +7,7 @@ export default function Login({navigation}){
         <View style={styles.all}>
             <ImageBackground style={{flex:1}} source={image}>
                 <View style={styles.top}>
-                    <Text style={styles.textNome}>LOGIN</Text>
+                <Text style={styles.textNome}>LOGIN</Text>
                 </View>
                 <View style={styles.middle}>
                     <TextInput style={styles.input} placeholder="Usuário:"/>
