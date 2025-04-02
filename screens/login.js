@@ -1,4 +1,4 @@
-import {Text, View, StyleSheet, TextInput, Button, ImageBackground, Alert} from 'react-native';
+import {Text, View, StyleSheet, TextInput, Button, ImageBackground} from 'react-native';
 
 import image from '../assets/background.jpg';
 
@@ -14,7 +14,7 @@ export default function Login({navigation}){
                     <TextInput style={styles.input} placeholder="Senha:"/>
                 </View>
                 <View style={styles.bottom}>
-                    <Button title="Confirmar" color='black' onPress={() => navigation.navigate('Home')} />
+                    <Button title="Confirmar" color='black' onPress={() => navigation.navigate('HomeTab')} />
                 </View>
             </ImageBackground>
         </View>
