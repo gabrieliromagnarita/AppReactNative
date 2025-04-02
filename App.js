@@ -9,6 +9,7 @@ import Login from './screens/login';
 import Home from './screens/home';
 import FeedFotos from './screens/feed1';
 import FeedPosts from './screens/feed2';
+import Counter from './screens/counter';
 
 function BottomTabs(){
   const Tab = createBottomTabNavigator();
@@ -42,6 +43,12 @@ function BottomTabs(){
         options={{
           tabBarIcon: () => (
             <MaterialIcons name="textsms" size={24} color="white" />
+          )
+        }}/>
+        <Tab.Screen name='Counter' component={Counter}
+        options={{
+          tabBarIcon: () => (
+            <MaterialIcons name="123" size={24} color="white" />
           )
         }}/>
     </Tab.Navigator>
