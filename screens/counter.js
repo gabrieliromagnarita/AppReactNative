@@ -3,6 +3,8 @@ import { useState } from 'react';
 
 export default function Counter(){
     const [contador, setContador] = useState(0)
+    const [nome, setNome] = useState("")
+    const [email, setEmail] = useState("")
 
     function Aumentar(){
         setContador(contador + 1)
@@ -16,7 +18,6 @@ export default function Counter(){
 
     return(
         <View style={styles.container}>
-            {/* <Text style={styles.container}> */}
                 <Text style={styles.title}>Contador:</Text><br/>
                 <Text style={styles.text}>Contador: {contador}</Text><br/>
                 <View style={styles.row}>
@@ -28,10 +29,10 @@ export default function Counter(){
                     </TouchableOpacity>
                 </View>
                 <View style={styles.viewInput}>
-                    <TextInput style={styles.input} placeholder="Nome:"/>
-                    <TextInput style={styles.input} placeholder="Email:"/>
-                </View>
-            {/* </Text> */}
+                    <TextInput style={styles.input} placeholder="Nome:" value={nome} onChangeText={setNome}/>
+                    <TextInput style={styles.input} placeholder="Email:" value={email} onChangeText={setEmail}/>
+                </View>    
+                <Text>Oi, {nome}, seu email é {email}</Text>
         </View>
     )
 }
@@ -72,12 +73,11 @@ export const styles = StyleSheet.create({
         borderWidth: 4,
         fontSize: 30,
         borderRadius: 10,
-        borderColor: 'blue',
+        borderColor: 'pink',
         fontFamily: 'Helvetica',
         fontWeight: 'bold',
     },
     viewInput:{
-        backgroundColor: 'pink',
         width: '100%',
         height: '20%',
         justifyContent: 'space-around',
