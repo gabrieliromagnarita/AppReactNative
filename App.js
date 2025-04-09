@@ -29,9 +29,7 @@ function BottomTabs(){
       }}>
         <Tab.Screen name='Home' component={Home}
         options={{
-          tabBarIcon: () => (
-            <MaterialIcons name="home" size={24} color="white" />
-          )
+          tabBarIcon: () => (<MaterialIcons name="home" size={24} color="white" />)
         }}/>
         <Tab.Screen name='FeedFotos' component={FeedFotos}
         options={{
