@@ -10,6 +10,7 @@ import Home from './screens/home';
 import FeedFotos from './screens/feed1';
 import FeedPosts from './screens/feed2';
 import Counter from './screens/counter';
+import Product from './screens/Product';
 
 function BottomTabs(){
   const Tab = createBottomTabNavigator();
@@ -47,6 +48,12 @@ function BottomTabs(){
         options={{
           tabBarIcon: () => (
             <MaterialIcons name="123" size={24} color="white" />
+          )
+        }}/>
+        <Tab.Screen name="Produto"component={Product}
+        options={{
+          tabBarIcon: () => (
+            <MaterialIcons name="shopping-cart" size={24} color="white" />
           )
         }}/>
     </Tab.Navigator>
