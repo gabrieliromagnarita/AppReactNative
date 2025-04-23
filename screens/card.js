@@ -4,7 +4,10 @@ export default function Card({nome, valor, img}){
     return(
         <View style={styles.card}>
             <Image style={styles.foto} source={img}/>
-            <Text style={styles.text2}>{nome} - R${valor}</Text>
+            <View style={styles.subCard}>
+                <Text style={styles.text2}>{nome}</Text>
+                <Text style={styles.text2}>{valor}</Text>
+            </View>
         </View>
     )
 }
@@ -20,7 +23,9 @@ const styles= StyleSheet.create({
         margin: 10,
         backgroundColor: '#f094',
         borderRadius: 8,
-        alignItems: 'center'
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row'
     },
     foto:{
         height: 120,
@@ -28,5 +33,9 @@ const styles= StyleSheet.create({
         borderColor: '#F099',
         borderWidth: 5,
         borderRadius: 8,
+    },
+    subCard:{
+        alignItems: 'flex-start',
+        padding: 10
     }
 })
