@@ -1,6 +1,6 @@
-import {View, Text, StyleSheet, FlatList, Image} from 'react-native'
+import {View, Text, StyleSheet, FlatList} from 'react-native'
 import { useState } from 'react'
-
+import Card from './card'
 
 
 export default function Product(){
@@ -15,10 +15,7 @@ export default function Product(){
         <View style={styles.container}>
             <Text style={styles.text}>Lista de Produtos</Text>
             <FlatList data={produtos} renderItem={({ item }) => (
-                <View style={styles.card}>
-                    <Image style={styles.foto} source={item.img}/>
-                    <Text style={styles.text2}>{item.nome} - R${item.valor}</Text>
-                </View>
+                <Card nome={item.nome} valor={item.valor} img={item.img}/>
             )}
             keyExtractor={item => item.id}/>
             {/*ARRAY COM MAP!!
@@ -38,23 +35,6 @@ const styles= StyleSheet.create({
     text:{
         fontSize: 30,
         color: '#f09',
+        fontFamily: 'helvetica'
     },
-    text2:{
-        fontSize: 20,
-        color: '#000',
-    },
-    card:{
-        padding: 10,
-        margin: 10,
-        backgroundColor: '#f094',
-        borderRadius: 8,
-        alignItems: 'center'
-    },
-    foto:{
-        height: 120,
-        width: 120,
-        borderColor: '#F099',
-        borderWidth: 5,
-        borderRadius: 8,
-    }
 })
