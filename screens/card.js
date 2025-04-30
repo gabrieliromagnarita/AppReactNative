@@ -6,7 +6,7 @@ export default function Card({nome, valor, img}){
             <Image style={styles.foto} source={img}/>
             <View style={styles.subCard}>
                 <Text style={styles.text2}>{nome}</Text>
-                <Text style={styles.text2}>{valor}</Text>
+                <Text style={styles.text2}>R${valor}</Text>
             </View>
         </View>
     )
