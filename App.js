@@ -11,6 +11,7 @@ import FeedFotos from './screens/feed1';
 import FeedPosts from './screens/feed2';
 import Counter from './screens/counter';
 import Product from './screens/Product';
+import Cadastro from './screens/cadastro';
 
 function BottomTabs(){
   const Tab = createBottomTabNavigator();
@@ -67,6 +68,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name='Cadastrar' component={Cadastro}/>
         <Stack.Screen name='Login' component={Login}/>
         <Stack.Screen options={{headerShown:false}} name='HomeTab' component={BottomTabs}/>
       </Stack.Navigator>

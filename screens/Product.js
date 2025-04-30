@@ -2,7 +2,6 @@ import {View, Text, StyleSheet, FlatList} from 'react-native'
 import { useState } from 'react'
 import Card from './card'
 
-
 export default function Product(){
     const [produtos, setProdutos] = useState([
         {id: 1, nome: 'Camiseta', valor: 99.99, img: require('../assets/camiseta.jpg')},

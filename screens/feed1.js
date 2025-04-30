@@ -1,6 +1,6 @@
 import {Text, View, StyleSheet, Image} from 'react-native';
 
-export default function FeedFotos({navigation}){
+export default function FeedFotos({}){
     return(
         <View style={styles.all}>
             <View style={styles.top}>

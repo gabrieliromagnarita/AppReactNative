@@ -1,6 +1,6 @@
 import {Text, View, StyleSheet, Image, ImageBackground} from 'react-native';
 
-import image from '../assets/background.jpg';
+import image from '../assets/background3.jpg';
 
 export default function Home(){
     return(
