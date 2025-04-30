@@ -1,5 +1,4 @@
 import {Text, View, StyleSheet,  TextInput, Button, ImageBackground} from 'react-native'
-import image from '../assets/background1.jpg';
 import { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../controller';
@@ -20,7 +19,7 @@ export default function Cadastro({navigation}){
 
     return(
         <View style={styles.all}>
-            <ImageBackground source={image} style={{flex:1}}>
+            <ImageBackground source={require('../assets/background1.jpg')} style={{flex:1}}>
                 <View style={styles.top}>
                     <Text style={styles.textNome}>CADASTRO</Text>
                 </View>
