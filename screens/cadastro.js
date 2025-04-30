@@ -1,20 +1,26 @@
 import {Text, View, StyleSheet,  TextInput, Button, ImageBackground} from 'react-native'
 import image from '../assets/background1.jpg';
 import { useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth} from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../controller';
 
 export default function Cadastro({navigation}){
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
-    const auth = getAuth();
 
     const cadastroUser = () => {
-        createUserWithEmailAndPassword(auth, email, senha)
+        createUserWithEmailAndPassword(auth, email, senha).then(userCredential => {
+            console.log('cadastrado!',userCredential.user.email);
+            navigation.navigate('Login');
+          })
+          .catch((error) => {
+            console.log('erro', error.message);
+          });
     }
 
     return(
         <View style={styles.all}>
-            <ImageBackground style={{flex:1}} source={image}>
+            <ImageBackground source={image} style={{flex:1}}>
                 <View style={styles.top}>
                     <Text style={styles.textNome}>CADASTRO</Text>
                 </View>
@@ -23,7 +29,7 @@ export default function Cadastro({navigation}){
                     <TextInput style={styles.input} placeholder="Senha:" value={senha} onChangeText={setSenha} secureTextEntry={true}/>
                 </View>
                 <View style={styles.bottom}>
-                    <Button title="Cadastrar" color='#000'/>
+                    <Button title="Cadastrar" color='#000' onPress={cadastroUser}/>
                     <Button title="Login" color='#000' onPress={() => navigation.navigate('Login')} />
                 </View>
             </ImageBackground>
