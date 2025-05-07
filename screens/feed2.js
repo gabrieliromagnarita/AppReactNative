@@ -1,11 +1,11 @@
-import {Text, ScrollView, View, StyleSheet} from 'react-native';
+import {Text, ScrollView, View, StyleSheet, ImageBackground} from 'react-native';
 
 import image from '../assets/background4.jpg';
 
 export default function FeedPosts({}){
     return(
         <View style={styles.all}>
-            <ImageBackground style={{flex:1}} source={image}>
+            <ImageBackground  style={{height:"100%", width:"100%"}} source={image}>
                 <ScrollView>
                     <View style={styles.top}>
                         <Text style={styles.textTitle}>Feed de Posts!</Text>

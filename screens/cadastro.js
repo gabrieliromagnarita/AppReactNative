@@ -19,7 +19,7 @@ export default function Cadastro({navigation}){
 
     return(
         <View style={styles.all}>
-            <ImageBackground source={require('../assets/background1.jpg')} style={{flex:1}}>
+            <ImageBackground source={require('../assets/background1.jpg')}   style={{height:"100%", width:"100%"}}>
                 <View style={styles.top}>
                     <Text style={styles.textNome}>CADASTRO</Text>
                 </View>

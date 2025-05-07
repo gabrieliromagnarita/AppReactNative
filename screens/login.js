@@ -1,6 +1,6 @@
 import {Text, View, StyleSheet, TextInput, Button, ImageBackground} from 'react-native';
 import { useState } from 'react';
-import image from '../assets/background2.jpg';
+/* import image from '../assets/background2.jpg'; */
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../controller';
 
@@ -19,7 +19,7 @@ export default function Login({navigation}){
     }
     return(
         <View style={styles.all}>
-            <ImageBackground source={image} style={{flex:1}}>
+            <ImageBackground source={{uri:'https://i.pinimg.com/736x/0a/bc/68/0abc6811083fdd5d272d96d428c0cfe3.jpg'}} style={{height:"100%", width:"100%"}}>
                 <View style={styles.top}>
                 <Text style={styles.textNome}>LOGIN</Text>
                 </View>

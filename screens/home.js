@@ -5,7 +5,7 @@ import image from '../assets/background3.jpg';
 export default function Home(){
     return(
         <View style={styles.all}>
-            <ImageBackground style={{flex:1}} source={image}>
+            <ImageBackground  style={{height:"100%", width:"100%"}} source={image}>
                 <View style={styles.top}>
                     <Text style={styles.textName}>FASHIONIFY</Text>
                 </View>
