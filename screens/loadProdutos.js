@@ -1,10 +1,28 @@
 import { View, Text, TextInput, StyleSheet, Button, ImageBackground } from "react-native";
 import { useState } from "react";
+import { db } from "../controller";
+import { collection, addDoc } from "firebase/firestore";
 
 export default function CadastrarProd(){
     const [nome, setNome] = useState("");
     const [valor, setValor] = useState("");
     const [imagem, setImagem] = useState("");
+
+    const cadastraProdutos = async () => {
+        try{
+            await addDoc(collection(db, 'produtos'),{
+                nome,
+                valor: parseFloat(valor),
+                imagem
+            });
+            setNome('');
+            setValor('');
+            setImagem('');
+        }
+        catch(error){
+            console.log("Erro no cadastro do produto.", error)
+        }
+    }
 
     return(
         <View style={styles.all}>
@@ -15,7 +33,7 @@ export default function CadastrarProd(){
                     <TextInput style={styles.input} placeholder="Imagem:" value={imagem} onChangeText={setImagem}/>
                 </View>
                 <View style={styles.bottom}>
-                    <Button title="Confirmar" color="black"/>
+                    <Button title="Confirmar" color="black" onPress={cadastraProdutos}/>
                 </View>
             </ImageBackground>
         </View>

@@ -28,7 +28,7 @@ export default function Login({navigation}){
                     <TextInput style={styles.input} placeholder="Senha:" value={senha} onChangeText={setSenha} secureTextEntry={true}/>
                 </View>
                 <View style={styles.bottom}>
-                    <Button title="Entrar" color='black' onPress={verifyUser}/>
+                    <Button title="Entrar" color='#f093' onPress={verifyUser}/>
                     <TouchableOpacity onPress={() => navigation.navigate('Cadastrar')}><Text style={styles.txtcadast}>Cadastrar-se</Text></TouchableOpacity>
                 </View>
             </ImageBackground>
@@ -59,6 +59,7 @@ export const styles = StyleSheet.create({
         fontSize: 63,
         fontWeight: 'bold',
         textAlign: 'center',
+        color: 'white',
     },
     input:{
         height: 60,
