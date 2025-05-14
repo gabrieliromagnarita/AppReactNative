@@ -71,6 +71,6 @@ export const styles = StyleSheet.create({
     txtcadast:{
         fontSize: 20,
         color: 'black',
-        
+        textAlign: 'center',
     }
 })

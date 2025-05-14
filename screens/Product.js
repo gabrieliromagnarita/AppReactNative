@@ -1,20 +1,34 @@
 import {View, Text, StyleSheet, FlatList} from 'react-native'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Card from './card'
+import { db } from '../controller'
+import { collection, getDocs } from 'firebase/firestore'
 
 export default function Product(){
-    const [produtos, setProdutos] = useState([
-        {id: 1, nome: 'Camiseta', valor: 99.99, img: require('../assets/camiseta.jpg')},
-        {id: 2, nome: 'Moletom', valor: 159.90, img:require('../assets/moletom.jpg')},
-        {id: 3, nome: 'Tênis', valor: 89.90, img: require('../assets/tênis.jpg')},
-        {id: 4, nome: 'Calça', valor: 250.00, img:  require('../assets/pants.jpg')}
-    ])
+    const [produtos, setProdutos] = useState([]);
+
+    useEffect(() => {
+        async function loadProdutos() {
+            try{
+                const querySnapshot = await getDocs(collection(db, 'produtos'));
+                const lista = [];
+                querySnapshot.forEach((doc) => {
+                    lista.push({id: doc.id, ...doc.data() });
+                });
+                setProdutos(lista);
+            }catch(error) {
+                console.log("Erro ao buscar produtos", error);
+            }
+        }
+
+        loadProdutos();
+    }, []);
 
     return(
         <View style={styles.container}>
             <Text style={styles.text}>Lista de Produtos</Text>
             <FlatList data={produtos} renderItem={({ item }) => (
-                <Card nome={item.nome} valor={item.valor} img={item.img}/>
+                <Card nome={item.nome} valor={item.valor} img={item.imagem}/>
             )}
             keyExtractor={item => item.id}/>
             {/*ARRAY COM MAP!!
