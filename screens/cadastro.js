@@ -7,6 +7,7 @@ export default function Cadastro({navigation}){
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
 
+    //transformando uma constante em uma função (criando uma função constante)
     const cadastroUser = () => {
         createUserWithEmailAndPassword(auth, email, senha).then(userCredential => {
             console.log('cadastrado!',userCredential.user.email);
@@ -29,7 +30,6 @@ export default function Cadastro({navigation}){
                 </View>
                 <View style={styles.bottom}>
                     <Button title="Cadastrar" color='#000' onPress={cadastroUser}/>
-                    <Button title="Login" color='#000' onPress={() => navigation.navigate('Login')} />
                 </View>
             </ImageBackground>
         </View>

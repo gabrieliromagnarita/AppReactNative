@@ -1,4 +1,4 @@
-import {Text, View, StyleSheet, TextInput, Button, ImageBackground} from 'react-native';
+import {Text, View, StyleSheet, TextInput, Button, ImageBackground, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 /* import image from '../assets/background2.jpg'; */
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -29,7 +29,7 @@ export default function Login({navigation}){
                 </View>
                 <View style={styles.bottom}>
                     <Button title="Entrar" color='black' onPress={verifyUser}/>
-                    <Button title="Cadastrar-se" color='black' onPress={() => navigation.navigate('Cadastrar')} />
+                    <TouchableOpacity onPress={() => navigation.navigate('Cadastrar')}><Text style={styles.txtcadast}>Cadastrar-se</Text></TouchableOpacity>
                 </View>
             </ImageBackground>
         </View>
@@ -68,4 +68,9 @@ export const styles = StyleSheet.create({
         fontFamily: 'Helvetica',
         fontWeight: 'bold',
     },
+    txtcadast:{
+        fontSize: 20,
+        color: 'black',
+        
+    }
 })
