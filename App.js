@@ -12,6 +12,7 @@ import FeedPosts from './screens/feed2';
 import Counter from './screens/counter';
 import Product from './screens/Product';
 import Cadastro from './screens/cadastro';
+import CadastrarProd from './screens/loadProdutos';
 
 function BottomTabs(){
   const Tab = createBottomTabNavigator();
@@ -55,6 +56,12 @@ function BottomTabs(){
         options={{
           tabBarIcon: () => (
             <MaterialIcons name="shopping-cart" size={24} color="white" />
+          )
+        }}/>
+        <Tab.Screen name="Cadatro de Produtos"component={CadastrarProd}
+        options={{
+          tabBarIcon: () => (
+            <MaterialIcons name="cloud-upload" size={24} color="white" />
           )
         }}/>
     </Tab.Navigator>

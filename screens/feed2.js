@@ -1,6 +1,6 @@
 import {Text, ScrollView, View, StyleSheet, ImageBackground} from 'react-native';
 
-import image from '../assets/background4.jpg';
+import image from '../assets/background5.jpg';
 
 export default function FeedPosts({}){
     return(
