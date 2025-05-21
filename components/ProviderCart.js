@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 const CarrinhoContext = createContext();
 
 export function ProviderCart({children}){
-    const [carrinho, setCarrinho] = useState([0]);
+    const [carrinho, setCarrinho] = useState([]);
 
     function adicionarProduto(produto){
         setCarrinho((anterior) => [...anterior, produto])

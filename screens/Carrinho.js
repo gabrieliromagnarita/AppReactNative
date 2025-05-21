@@ -1,28 +1,32 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, FlatList, ScrollView } from "react-native";
 import { useCarrinho } from "../components/ProviderCart";
-import { FlatList } from "react-native-gesture-handler";
 
 export default function Carrinho({navigation}){
     const {carrinho} = useCarrinho();
     return(
-        <View style={styles.container}>
-            <Text style={styles.text1}>Carrinho</Text>
-            <FlatList data={carrinho} renderItem={({item}) => (
-                <View style={styles.product}>
-                <Image style={styles.foto} source={{uri: item.imagem}}/>
-                <View style={styles.subView}>
-                    <Text style={styles.text2}>{item.nome}</Text>
-                    <Text style={styles.text3}>R${item.valor}</Text>
-                </View>
-            </View>)}/>
-        </View>
+        <ScrollView>
+            <View style={styles.container}>
+                <Text style={styles.text1}>Carrinho</Text>
+                <FlatList 
+                    data={carrinho}
+                    renderItem={({item}) => (
+                        <View style={styles.product}>
+                            <Image style={styles.foto} source={{uri: item.imagem}}/>
+                            <View style={styles.subView}>
+                                <Text style={styles.text2}>{item.nome}</Text>
+                                <Text style={styles.text3}>R${item.valor}</Text>
+                            </View>
+                        </View>
+                    )}
+                />
+            </View>
+        </ScrollView>
     )
 }
 
 const styles= StyleSheet.create({
-    conatiner:{
+    container:{
         flex: 1,
-        alignItems: 'center'
     },
     text1:{
         fontSize: 30,
@@ -49,9 +53,8 @@ const styles= StyleSheet.create({
         borderRadius: 8,
     },
     product:{
-        borderRadius: 8,
+        margin: 10,
         alignItems: 'center',
-        justifyContent: 'center',
         display: 'flex',
         flexDirection: 'row'
     },

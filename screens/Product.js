@@ -7,6 +7,7 @@ import { useCarrinho } from '../components/ProviderCart'
 
 export default function Product({navigation}){
     const [produtos, setProdutos] = useState([]);
+    const {adicionarProduto} = useCarrinho();
 
     useEffect(() => {
         async function loadProdutos() {
@@ -33,7 +34,7 @@ export default function Product({navigation}){
                 valor={item.valor}
                 img={item.imagem}
                 comprar={() => {adicionarProduto(item);
-                    navigation.navigate('carrinho');
+                    navigation.navigate('Carrinho');
                 }}/>
             )}
             keyExtractor={item => item.id}/>

@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { ProviderCart, useCarrinho } from './components/ProviderCart';
+import { ProviderCart } from './components/ProviderCart';
 
 import Login from './screens/login';
 import Home from './screens/home';
