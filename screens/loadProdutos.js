@@ -33,7 +33,7 @@ export default function CadastrarProd(){
                     <TextInput style={styles.input} placeholder="Imagem:" value={imagem} onChangeText={setImagem}/>
                 </View>
                 <View style={styles.bottom}>
-                    <Button title="Confirmar" color="black" onPress={cadastraProdutos}/>
+                    <Button title="Confirmar" color='#f093' onPress={cadastraProdutos}/>
                 </View>
             </ImageBackground>
         </View>
