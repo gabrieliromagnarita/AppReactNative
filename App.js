@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { ProviderCart, useCarrinho } from './components/ProviderCart';
 
 import Login from './screens/login';
 import Home from './screens/home';
@@ -13,6 +14,7 @@ import Counter from './screens/counter';
 import Product from './screens/Product';
 import Cadastro from './screens/cadastro';
 import CadastrarProd from './screens/loadProdutos';
+import Carrinho from './screens/Carrinho';
 
 function BottomTabs(){
   const Tab = createBottomTabNavigator();
@@ -64,6 +66,12 @@ function BottomTabs(){
             <MaterialIcons name="cloud-upload" size={24} color="white" />
           )
         }}/>
+        <Tab.Screen name="Carrinho"component={Carrinho}
+        options={{
+          tabBarIcon: () => (
+            <MaterialIcons name="shopping-cart-checkout" size={24} color="white" />
+          )
+        }}/>
     </Tab.Navigator>
   )
 }
@@ -73,13 +81,14 @@ export default function App() {
   const Stack = createStackNavigator();
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-      <Stack.Screen name='Login' component={Login}/>
+    <ProviderCart>
+      <NavigationContainer>
+        <Stack.Navigator>
+        <Stack.Screen name='Login' component={Login}/>
         <Stack.Screen name='Cadastrar' component={Cadastro}/>
-        
         <Stack.Screen options={{headerShown:false}} name='HomeTab' component={BottomTabs}/>
-      </Stack.Navigator>
-    </NavigationContainer>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ProviderCart>
   );
 }

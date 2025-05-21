@@ -3,8 +3,9 @@ import { useState, useEffect } from 'react'
 import Card from './card'
 import { db } from '../controller'
 import { collection, getDocs } from 'firebase/firestore'
+import { useCarrinho } from '../components/ProviderCart'
 
-export default function Product(){
+export default function Product({navigation}){
     const [produtos, setProdutos] = useState([]);
 
     useEffect(() => {
@@ -28,7 +29,12 @@ export default function Product(){
         <View style={styles.container}>
             <Text style={styles.text}>Lista de Produtos</Text>
             <FlatList data={produtos} renderItem={({ item }) => (
-                <Card nome={item.nome} valor={item.valor} img={item.imagem}/>
+                <Card nome={item.nome} 
+                valor={item.valor}
+                img={item.imagem}
+                comprar={() => {adicionarProduto(item);
+                    navigation.navigate('carrinho');
+                }}/>
             )}
             keyExtractor={item => item.id}/>
             {/*ARRAY COM MAP!!

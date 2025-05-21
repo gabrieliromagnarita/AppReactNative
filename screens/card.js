@@ -1,12 +1,13 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Button } from "react-native";
 
-export default function Card({nome, valor, img}){
+export default function Card({nome, valor, img, comprar}){
     return(
         <View style={styles.card}>
             <Image style={styles.foto} source={img}/>
             <View style={styles.subCard}>
                 <Text style={styles.text2}>{nome}</Text>
-                <Text style={styles.text2}>R${valor}</Text>
+                <Text style={styles.text3}>R${valor}</Text>
+                <Button title='Comprar' onPress={comprar} color='#F09'/>
             </View>
         </View>
     )
@@ -14,6 +15,12 @@ export default function Card({nome, valor, img}){
 
 const styles= StyleSheet.create({
     text2:{
+        fontSize: 20,
+        color: '#000',
+        fontFamily: 'helvetica',
+        fontWeight: 'bold'
+    },
+    text3:{
         fontSize: 20,
         color: '#000',
         fontFamily: 'helvetica'
@@ -37,5 +44,5 @@ const styles= StyleSheet.create({
     subCard:{
         alignItems: 'flex-start',
         padding: 10
-    }
+    },
 })
