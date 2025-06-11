@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, Image, FlatList, ScrollView } from "react-native";
 import { useCarrinho } from "../components/ProviderCart";
+import Card from "./card";
 
 export default function Carrinho({navigation}){
     const {carrinho} = useCarrinho();
@@ -10,13 +11,9 @@ export default function Carrinho({navigation}){
                 <FlatList 
                     data={carrinho}
                     renderItem={({item}) => (
-                        <View style={styles.product}>
-                            <Image style={styles.foto} source={{uri: item.imagem}}/>
-                            <View style={styles.subView}>
-                                <Text style={styles.text2}>{item.nome}</Text>
-                                <Text style={styles.text3}>R${item.valor}</Text>
-                            </View>
-                        </View>
+                        <Card nome={item.nome} 
+                        valor={item.valor}
+                        img={item.imagem}/>
                     )}
                 />
             </View>

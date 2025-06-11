@@ -7,7 +7,7 @@ export default function Card({nome, valor, img, comprar}){
             <View style={styles.subCard}>
                 <Text style={styles.text2}>{nome}</Text>
                 <Text style={styles.text3}>R${valor}</Text>
-                <Button title='Comprar' onPress={comprar} color='#F09'/>
+                {comprar &&<Button title='Comprar' onPress={comprar} color='#F09'/>}
             </View>
         </View>
     )
