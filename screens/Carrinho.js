@@ -3,17 +3,20 @@ import { useCarrinho } from "../components/ProviderCart";
 import Card from "./card";
 
 export default function Carrinho({navigation}){
-    const {carrinho} = useCarrinho();
+    const {carrinho, removerProduto} = useCarrinho();
     return(
         <ScrollView>
             <View style={styles.container}>
                 <Text style={styles.text1}>Carrinho</Text>
                 <FlatList 
                     data={carrinho}
-                    renderItem={({item}) => (
+                    renderItem={({item, index}) => (
                         <Card nome={item.nome} 
                         valor={item.valor}
-                        img={item.imagem}/>
+                        img={item.imagem}
+                        remover={() => {removerProduto(index);
+                            navigation.navigate('Carrinho');
+                        }}/>
                     )}
                 />
             </View>

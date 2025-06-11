@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image, Button } from "react-native";
 
-export default function Card({nome, valor, img, comprar}){
+export default function Card({nome, valor, img, comprar, remover}){
     return(
         <View style={styles.card}>
             <Image style={styles.foto} source={img}/>
@@ -8,6 +8,7 @@ export default function Card({nome, valor, img, comprar}){
                 <Text style={styles.text2}>{nome}</Text>
                 <Text style={styles.text3}>R${valor}</Text>
                 {comprar &&<Button title='Comprar' onPress={comprar} color='#F09'/>}
+                {remover &&<Button title='Excluir' onPress={remover} color='#F09'/>}
             </View>
         </View>
     )
